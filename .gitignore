@@ -1,3 +1,6 @@
 __pycache__
 pycatapi/__pycache__
 *.replit
+build/
+dist/
+**/__pycache__
