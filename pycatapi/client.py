@@ -5,15 +5,22 @@ from .cat import Cat
 class Client:
 
     def __init__(self) -> None:
-        self.session = requests.Session()
+        self._session = requests.Session()
 
     @staticmethod
-    def request(session: requests.Session):
-        r = session.get("https://api.thecatapi.com/v1/images/search")
+    def request(_session: requests.Session):
+        r = _session.get("https://api.thecatapi.com/v1/images/search")
         json: list[dict] = r.json()
         return json[0]
 
     def get_cat(self) -> Cat:
         """Get a random cat pic UwU"""
-        data = self.request(self.session)
+        with self._session as ses:
+            data = self.request(ses)
         return Cat(**data)
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *args):
+        self._session.close()
