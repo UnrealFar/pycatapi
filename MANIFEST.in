@@ -1,0 +1,4 @@
+include pycatapi/*.py
+include *.py
+exclude pycatapi/__pycache__
+exclude *.replit
