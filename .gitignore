@@ -4,3 +4,4 @@ pycatapi/__pycache__
 build/
 dist/
 **/__pycache__
+*.egg-info
