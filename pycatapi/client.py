@@ -17,7 +17,7 @@ class Client:
         """Get a random cat pic UwU"""
         with self._session as ses:
             data = self.request(ses)
-        return Cat(**data)
+        return data["url"]
 
     def __enter__(self):
         return self
