@@ -15,8 +15,7 @@ class Client:
 
     def get_cat(self) -> Cat:
         """Get a random cat pic UwU"""
-        with self._session as ses:
-            data = self.request(ses)
+        data = self.request(self._session)
         return data["url"]
 
     def __enter__(self):
