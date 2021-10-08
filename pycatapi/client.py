@@ -1,26 +1,27 @@
 import requests
 
-from .cat import Cat
-
 class Client:
+    def __init__(self):
+        self._get = requests.get
+        self._base_url = "https://api.thecatapi.com/v1/images/search"
 
-    def __init__(self) -> None:
-        self._session = requests.Session()
-
-    @staticmethod
-    def request(_session: requests.Session):
-        r = _session.get("https://api.thecatapi.com/v1/images/search")
-        json: list[dict] = r.json()
-        return json[0]
-
-    def get_cat(self) -> Cat:
+    def get_cat(self):
         """Get a random cat pic UwU"""
-        with self._session as ses:
-            data = self.request(ses)
-        return data["url"]
+        url = self._base_url
+        data = self._get(url)
+        cat = data.json()[0]
+        return cat["url"]
 
-    def __enter__(self):
-        return self
+    def get_cat_by_breed(self, breed: str):
+        """Get a random cat pic of a specified breed!"""
+        url = f"{self._base_url}?breed_ids={breed}"
+        data = self._get(url)
+        cat = data.json()[0]
+        return cat["url"]
 
-    def __exit__(self, *args):
-        self._session.close()
+    def get_breed_desc(self, breed: str):
+        """Get the description of a specified cat breed!"""
+        url = f"{self._base_url}?breed_ids={breed}"
+        data = self._get(url)
+        catinfo = data.json()[0]["breeds"][0]["description"]
+        return catinfo
