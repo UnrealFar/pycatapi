@@ -18,6 +18,9 @@ class Client:
         data = self.request(self._session)
         return data["url"]
 
+    def close(self):
+        self._session.close()
+
     def __enter__(self):
         return self
 
