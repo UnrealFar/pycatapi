@@ -1,9 +1,7 @@
 from setuptools import setup
 import re
 
-requirements = []
-with open('requirements.txt') as f:
-    requirements = f.read().splitlines()
+requirements = ["requests"]
 
 version = ''
 with open('pycatapi/__init__.py') as f:
