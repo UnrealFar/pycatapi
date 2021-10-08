@@ -8,14 +8,14 @@ class Client:
         self._session = requests.Session()
 
     @staticmethod
-    def request(_session: requests.Session):
-        r = _session.get("https://api.thecatapi.com/v1/images/search")
+    def request(_session: requests.Session, endpoint: str):
+        r = _session.get(f"https://api.thecatapi.com/v1/{endpoint}")
         json: list[dict] = r.json()
         return json[0]
 
     def get_cat(self) -> Cat:
         """Get a random cat pic UwU"""
-        data = self.request(self._session)
+        data = self.request(self._session, "images/search")
         return data["url"]
 
     def close(self):
