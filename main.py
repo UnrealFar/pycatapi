@@ -12,5 +12,5 @@ print(f"Cat\n{img}")
 """Get an image of a cat belonging to a specific breed"""
 
 breedimg = c.get_breed("beng")
-print(f"\nCat by breed\n{img}")
+print(f"\nCat by breed\n{breedimg}")
 
