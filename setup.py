@@ -20,8 +20,8 @@ packages = [
 ]
 
 setup(name='PyCatApi',
-    author='TheFarGG',
-    url='https://github.com/TheFarGG/pycatapi/',
+    author='UnrealFar',
+    url='https://github.com/UnrealFar/pycatapi/',
     version=version,
     packages=packages,
     license='MIT',
