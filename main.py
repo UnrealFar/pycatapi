@@ -1,16 +1,16 @@
 from pycatapi import Client
+from pprint import pprint
+import asyncio
 
 #Define our client here
 c = Client()
 
+#Lets get a random cat image UwU
 
-"""Lets get a random cat image UwU"""
-
-img = c.get_cat()
+img = asyncio.run(c.get_cat())
 print(f"Cat\n{img}")
 
-"""Get an image of a cat belonging to a specific breed"""
+#Get an image of a cat belonging to a specific breed
 
-breedimg = c.get_breed("beng")
-print(f"\nCat by breed\n{breedimg}")
-
+breedimg = asyncio.run(c.get_breed("beng"))
+print(f"Cat by breed\n{breedimg}")

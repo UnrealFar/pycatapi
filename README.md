@@ -3,13 +3,19 @@ PyCatApi is a Python wrapper for [TheCatApi](https://thecatapi.com/) written by 
 
 ## Example usage
 ```py
-from pycatapi import Client
-
 #Define our client here
 c = Client()
 
-img = c.get_cat()
-print(f"Cat\n{img}")
+#Lets get a random cat image UwU
+
+img = asyncio.run(c.get_cat())
+pprint(f"Cat\n{img}")
+
+#Get an image of a cat belonging to a specific breed
+
+breedimg = asyncio.run(c.get_breed("beng"))
+pprint(f"Cat by breed\n{breedimg}")
+
 ```
 
 ### This will give us the url to a cat image 🐈
