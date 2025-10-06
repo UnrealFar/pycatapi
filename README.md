@@ -1,5 +1,5 @@
 # PyCatApi
-PyCatApi is a Python wrapper for [TheCatApi](https://thecatapi.com/) written by [TheFarGG](https://github.com/TheFarGG/)
+PyCatApi is a Python wrapper for [TheCatApi](https://thecatapi.com/) written by [UnrealFar](https://github.com/UnrealFar)
 
 ## Example usage
 ```py
